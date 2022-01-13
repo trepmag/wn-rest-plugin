@@ -8,7 +8,7 @@ use Backend\Classes\Controller;
 class {{studly_name}} extends Controller
 {
     public $implement = [
-        'Mohsin.Rest.Behaviors.RestController'
+        'Trepmag.Rest.Behaviors.RestController'
     ];
 
     public $restConfig = 'config_rest.yaml';

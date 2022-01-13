@@ -20,7 +20,7 @@ namespace Acme\Blog\Controllers;
 
 class Categories extends \Backend\Classes\Controller
 {
-    public $implement = ['Mohsin.Rest.Behaviors.RestController'];
+    public $implement = ['Trepmag.Rest.Behaviors.RestController'];
 }
 ```
 

@@ -1,10 +1,10 @@
-<?php namespace Mohsin\Rest\Controllers;
+<?php namespace Trepmag\Rest\Controllers;
 
 use Lang;
 use Flash;
 use BackendMenu;
 use ApplicationException;
-use Mohsin\Rest\Models\Node;
+use Trepmag\Rest\Models\Node;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
 use System\Controllers\Settings as SettingsController;
@@ -26,7 +26,7 @@ class Settings extends SettingsController
     {
         parent::__construct();
         BackendMenu::setContext('October.System', 'system', 'settings');
-        SettingsManager::setContext('Mohsin.Rest', 'settings');
+        SettingsManager::setContext('Trepmag.Rest', 'settings');
     }
 
     public function index()
@@ -36,7 +36,7 @@ class Settings extends SettingsController
         // Form Initialization
         $model = $this->formCreateModelObject();
         $this->initForm($model);
-        $this->update('Mohsin', 'Rest', 'settings');
+        $this->update('Trepmag', 'Rest', 'settings');
 
         // List Initialization
         return $this->asExtension('ListController')->index();
@@ -44,12 +44,12 @@ class Settings extends SettingsController
 
     public function index_onSave()
     {
-        return $this->update_onSave('Mohsin', 'Rest', 'settings');
+        return $this->update_onSave('Trepmag', 'Rest', 'settings');
     }
 
     protected function createModel($item)
     {
-        return \Mohsin\Rest\Models\Setting::instance();
+        return \Trepmag\Rest\Models\Setting::instance();
     }
 
     public function onBulkAction()
@@ -77,7 +77,7 @@ class Settings extends SettingsController
                 }
             }
         }
-        Flash::success(Lang::get("mohsin.rest::lang.settings.{$bulkAction}_success"));
+        Flash::success(Lang::get("trepmag.rest::lang.settings.{$bulkAction}_success"));
         return $this->listRefresh('manage');
     }
 }

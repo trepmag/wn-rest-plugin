@@ -1,4 +1,4 @@
-<?php namespace Mohsin\Rest\Updates;
+<?php namespace Trepmag\Rest\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
@@ -8,7 +8,7 @@ class CreateNodesTable extends Migration
 {
     public function up()
     {
-        Schema::create('mohsin_rest_nodes', function (Blueprint $table) {
+        Schema::create('trepmag_rest_nodes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('path')->unique();
@@ -20,6 +20,6 @@ class CreateNodesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('mohsin_rest_nodes');
+        Schema::dropIfExists('trepmag_rest_nodes');
     }
 }

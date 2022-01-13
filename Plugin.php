@@ -1,8 +1,8 @@
-<?php namespace Mohsin\Rest;
+<?php namespace Trepmag\Rest;
 
 use Backend;
 use System\Classes\PluginBase;
-use Mohsin\Rest\Classes\ApiManager;
+use Trepmag\Rest\Classes\ApiManager;
 use System\Classes\SettingsManager;
 
 /**
@@ -18,8 +18,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'mohsin.rest::lang.plugin.name',
-            'description' => 'mohsin.rest::lang.plugin.description',
+            'name'        => 'trepmag.rest::lang.plugin.name',
+            'description' => 'trepmag.rest::lang.plugin.description',
             'author'      => 'Saifur Rahman Mohsin',
             'icon'        => 'icon-cloud'
         ];
@@ -27,7 +27,7 @@ class Plugin extends PluginBase
 
     public function register()
     {
-        $this->registerConsoleCommand('create.restcontroller', 'Mohsin\Rest\Console\CreateRestController');
+        $this->registerConsoleCommand('create.restcontroller', 'Trepmag\Rest\Console\CreateRestController');
     }
 
     public function boot()
@@ -45,13 +45,13 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'mohsin.rest::lang.settings.name',
-                'description' => 'mohsin.rest::lang.settings.description',
+                'label'       => 'trepmag.rest::lang.settings.name',
+                'description' => 'trepmag.rest::lang.settings.description',
                 'category'    => SettingsManager::CATEGORY_SYSTEM,
                 'icon'        => 'icon-cloud',
-                'url'         => Backend::url('mohsin/rest/settings'),
+                'url'         => Backend::url('trepmag/rest/settings'),
                 'order'       => 507,
-                'permissions' => ['mohsin.rest.access_settings'],
+                'permissions' => ['trepmag.rest.access_settings'],
             ]
         ];
     }

@@ -1,16 +1,16 @@
-<?php namespace Mohsin\Rest\Classes;
+<?php namespace Trepmag\Rest\Classes;
 
 use Lang;
 use Schema;
 use ApplicationException;
-use Mohsin\Rest\Models\Node;
-use Mohsin\Rest\Models\Setting;
+use Trepmag\Rest\Models\Node;
+use Trepmag\Rest\Models\Setting;
 use System\Classes\PluginManager;
 
 /**
  * Manages all the API nodes.
  *
- * @package Mohsin.Rest
+ * @package Trepmag.Rest
  * @author Saifur Rahman Mohsin
  */
 class ApiManager
@@ -49,7 +49,7 @@ class ApiManager
 
         $this->prefix = Setting::get('prefix', 'api/v1/');
 
-        if (!Schema::hasTable('mohsin_rest_nodes')) {
+        if (!Schema::hasTable('trepmag_rest_nodes')) {
             return;
         }
 
@@ -155,7 +155,7 @@ class ApiManager
                     $this->router->delete($path, $options);
                     break;
                 default:
-                    throw new ApplicationException(Lang::get('mohsin.rest::lang.http.invalid_action', [ 'path' => $path ]));
+                    throw new ApplicationException(Lang::get('trepmag.rest::lang.http.invalid_action', [ 'path' => $path ]));
             }
         }
     }

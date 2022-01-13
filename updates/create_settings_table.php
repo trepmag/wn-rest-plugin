@@ -1,4 +1,4 @@
-<?php namespace Mohsin\Rest\Updates;
+<?php namespace Trepmag\Rest\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
@@ -8,7 +8,7 @@ class CreateSettingsTable extends Migration
 {
     public function up()
     {
-        Schema::create('mohsin_rest_settings', function (Blueprint $table) {
+        Schema::create('trepmag_rest_settings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateSettingsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('mohsin_rest_settings');
+        Schema::dropIfExists('trepmag_rest_settings');
     }
 }

@@ -3,10 +3,10 @@
 # ===================================
 
 # Model List Column configuration
-list: $/mohsin/rest/models/node/columns.yaml
+list: $/trepmag/rest/models/node/columns.yaml
 
 # Model Class name
-modelClass: Mohsin\Rest\Models\Node
+modelClass: Trepmag\Rest\Models\Node
 
 # Link URL for each record
 recordOnClick: return

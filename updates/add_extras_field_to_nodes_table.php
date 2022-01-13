@@ -1,4 +1,4 @@
-<?php namespace Mohsin\Rest\Updates;
+<?php namespace Trepmag\Rest\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
@@ -8,8 +8,8 @@ class AddExtrasFieldToNodesTable extends Migration
 {
     public function up()
     {
-        if (Schema::hasTable('mohsin_rest_nodes')) {
-            Schema::table('mohsin_rest_nodes', function (Blueprint $table) {
+        if (Schema::hasTable('trepmag_rest_nodes')) {
+            Schema::table('trepmag_rest_nodes', function (Blueprint $table) {
                 $table->string('extras')->after('is_disabled')->default('{}');
             });
         }
@@ -17,8 +17,8 @@ class AddExtrasFieldToNodesTable extends Migration
 
     public function down()
     {
-        if (Schema::hasTable('mohsin_rest_nodes')) {
-            Schema::table('mohsin_rest_nodes', function (Blueprint $table) {
+        if (Schema::hasTable('trepmag_rest_nodes')) {
+            Schema::table('trepmag_rest_nodes', function (Blueprint $table) {
                 $table->dropColumn('extras');
             });
         }

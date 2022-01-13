@@ -1,13 +1,12 @@
-<?php namespace Mohsin\Rest\Behaviors;
+<?php
 
-use Db;
-use Str;
+namespace Trepmag\Rest\Behaviors;
+
 use Lang;
 use Request;
 use Exception;
-use ValidationException;
 use Backend\Classes\ControllerBehavior;
-use October\Rain\Database\ModelException;
+use Winter\Storm\Database\ModelException;
 
 /**
  * Rest Controller Behavior
@@ -18,7 +17,7 @@ use October\Rain\Database\ModelException;
  *
  * In the model class definition:
  *
- *   public $implement = ['Mohsin.Rest.Behaviors.RestController'];
+ *   public $implement = ['Trepmag\Rest\Behaviors\RestController'];
  *
  * @author Saifur Rahman Mohsin
  */
@@ -61,22 +60,19 @@ class RestController extends ControllerBehavior
     public function __construct($controller)
     {
         parent::__construct($controller);
-        $this->controller = $controller;
         $this->controller->middleware(function ($request, $next) {
-            $response = $next($request);
-            $this->fireSystemEvent('http.requestAfter');
-            return $response;
+            if (is_callable($next)) {
+                $response = $next($request);
+                $this->fireSystemEvent('http.requestAfter');
+                return $response;
+            }
         });
 
         /*
-         * Build configuration
-         */
+        * Build configuration
+        */
         $this->config = $this->makeConfig($controller->restConfig, $this->requiredConfig);
-        $this->config->modelClass = Str::normalizeClassName($this->config->modelClass);
-
-        if (isset($this->config->prefix)) {
-            $this->prefix = $this->config->prefix;
-        }
+        $this->prefix = $this->getConfig('prefix', '');
 
         // Extension
         $this->fireSystemEvent('http.request');
@@ -250,7 +246,7 @@ class RestController extends ControllerBehavior
         $result = $query->find($recordId);
 
         if (!$result) {
-            throw new Exception(Lang::get('mohsin.rest::lang.http.record_not_found', ['id' => $recordId]));
+            throw new Exception(Lang::get('trepmag.rest::lang.http.record_not_found', ['id' => $recordId]));
         }
 
         $result = $this->controller->extendModel($result) ?: $result;
@@ -264,7 +260,7 @@ class RestController extends ControllerBehavior
      */
     protected function createModel()
     {
-        $class = $this->config->modelClass;
+        $class = $this->getConfig('modelClass');
         return new $class();
     }
 

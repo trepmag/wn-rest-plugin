@@ -1,4 +1,4 @@
-<?php namespace Mohsin\Rest\Models;
+<?php namespace Trepmag\Rest\Models;
 
 use Model;
 
@@ -9,7 +9,7 @@ class Setting extends Model
 {
     public $implement = ['System.Behaviors.SettingsModel'];
 
-    public $settingsCode = 'mohsin_rest_settings';
+    public $settingsCode = 'trepmag_rest_settings';
 
     public $settingsFields = 'fields.yaml';
 

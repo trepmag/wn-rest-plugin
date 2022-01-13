@@ -1,4 +1,4 @@
-<?php namespace Mohsin\Rest\Console;
+<?php namespace Trepmag\Rest\Console;
 
 use October\Rain\Scaffold\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;

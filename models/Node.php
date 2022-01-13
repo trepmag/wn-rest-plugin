@@ -1,7 +1,7 @@
-<?php namespace Mohsin\Rest\Models;
+<?php namespace Trepmag\Rest\Models;
 
 use Model;
-use Mohsin\Rest\Classes\ApiManager;
+use Trepmag\Rest\Classes\ApiManager;
 
 /**
  * Node Model
@@ -11,7 +11,7 @@ class Node extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'mohsin_rest_nodes';
+    public $table = 'trepmag_rest_nodes';
 
     /**
      * @var array Guarded fields
