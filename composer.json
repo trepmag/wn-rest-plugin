@@ -1,0 +1,18 @@
+{
+    "name": "trepmag/wn-rest-plugin",
+    "type": "winter-plugin",
+    "description": "REST plugin",
+    "keywords": ["winter", "cms", "rest", "plugin"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trepmag",
+            "url": "https://github.com/trepmag/wn-rest-plugin",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "composer/installers": "~1.0"
+    }
+}
